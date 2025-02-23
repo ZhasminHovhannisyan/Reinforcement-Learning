@@ -4,8 +4,7 @@ This project implements a Tic-Tac-Toe game where two RL agents are trained
 to play against each other, and a human can compete against a trained RL agent.
 The goal is to train the agents in a way so they either win the human player or make a tie.
 
-
-
+aaa
 ## Project Files
 
 - **[tic_tac_toe.py](src/tic_tac_toe.py)**: Main script containing the game logic, training, competition, and human-play functions.

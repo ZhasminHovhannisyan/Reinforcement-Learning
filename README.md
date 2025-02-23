@@ -9,4 +9,4 @@ The projects focus on applying RL algorithms to solve classic problems, such as 
 
 ### [Project 1: Tic-Tac-Toe](tic-tac-toe/)
 - **Main File**: [tic_tac_toe.py](tic-tac-toe/src/tic_tac_toe.py)
-- **Algorithm**: Q-Learning
+

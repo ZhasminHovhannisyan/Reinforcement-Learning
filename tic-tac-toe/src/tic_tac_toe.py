@@ -148,6 +148,6 @@ def play():
 
 
 if __name__ == '__main__':
-    train(epochs=int(1e5))
-    compete(turns=int(1e3))
+   # train(epochs=int(1e5))
+   # compete(turns=int(1e3))
     play()

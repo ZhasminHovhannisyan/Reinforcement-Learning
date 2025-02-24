@@ -114,6 +114,8 @@ class Judge:
 
             # Return winner when game ends
             if is_game_ended:
+                if not print_state:
+                    current_state.print_state()
                 return current_state.winner
 
         # endregion Body

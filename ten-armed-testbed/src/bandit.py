@@ -137,7 +137,8 @@ class Bandit:
         # region ε-greedy
 
         # ε-greedy action selection: every once in a while, with small probability ε, select randomly from among all the actions with equal probability, independently of the action-value estimates.
-
+        if np.random.rand() < self.epsilon:
+            return np.random.choice(self.actions)
 
         # endregion ε-greedy
 
@@ -145,7 +146,8 @@ class Bandit:
 
         # Greedy action selection: select one of the actions with the highest estimated value, that is, one of the greedy actions.
         # If there is more than one greedy action, then a selection is made among them in some arbitrary way, perhaps randomly.
-
+        action = np.random.coice(np.where(self.estimated_action_values == np.max(self.estimated_action_values))[0])
+        return action
 
         # endregion Greedy
 

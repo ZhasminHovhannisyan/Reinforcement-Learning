@@ -34,3 +34,4 @@ The goal is to train the agents in a way so they either win the human player or 
 ## Requirements
 - Ensure Python 3.x is installed
 - Also numpy library is needed
+- After running the tic-tac-toe.py code once, the agents are already trained and the policies are saved, so you can comment train and compete lines

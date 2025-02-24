@@ -155,11 +155,11 @@ class State:
             out = '| '
             for j in range(self.board_columns):
                 if self.data[i, j] == 1:
-                    symbol = '*'
+                    symbol = '0'
                 elif self.data[i, j] == -1:
                     symbol = 'x'
                 else:
-                    symbol = '0'
+                    symbol = '.'
                 out += symbol + ' | '
             print(out)
         print('-------------')

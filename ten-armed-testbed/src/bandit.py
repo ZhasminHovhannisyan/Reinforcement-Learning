@@ -146,7 +146,7 @@ class Bandit:
 
         # Greedy action selection: select one of the actions with the highest estimated value, that is, one of the greedy actions.
         # If there is more than one greedy action, then a selection is made among them in some arbitrary way, perhaps randomly.
-        action = np.random.coice(np.where(self.estimated_action_values == np.max(self.estimated_action_values))[0])
+        action = np.random.choice(np.where(self.estimated_action_values == np.max(self.estimated_action_values))[0])
         return action
 
         # endregion Greedy

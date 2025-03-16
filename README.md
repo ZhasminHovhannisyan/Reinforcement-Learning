@@ -23,6 +23,9 @@ concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and
 
 
 # Get Started
+
+Ensure Python 3.x is installed
+
 ## Clone the repository 
 ```bash 
 git clone https://github.com/ZhasminHovhannisyan/Reinforcement-Learning.git

@@ -1,4 +1,4 @@
-# k-Armed Bandit Problem Implementation
+# K-Armed Bandit Problem Implementation
 
 ## Project overview
 This project implements the K-Armed Bandit problem using Python. The implementation supports different action selection strategies, including:

@@ -22,15 +22,18 @@ concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and
 
 
 
-# Get Started
+## Installation
 
-Ensure Python 3.x is installed
+Ensure Python 3.x is installed.
 
-## Clone the repository 
+### Clone the repository 
 ```bash 
 git clone https://github.com/ZhasminHovhannisyan/Reinforcement-Learning.git
 cd Reinforcement-Learning
 ```
-Make sure dependencies are installed.
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
 More detailed information about each project can be found in corresponding directories.
 Then run the main script for each project.

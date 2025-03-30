@@ -16,9 +16,13 @@ concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and
 - **Description**: Train an RL agent to play Tic-Tac-Toe, with features like early tie detection and human-play mode.
 - **Main File**: [tic_tac_toe.py](tic-tac-toe/src/tic_tac_toe.py)
 
-### [Project 2: Ten-armed-testbed](ten-armed-testbed/)
+### [Project 2: Ten-armed-Testbed](ten-armed-testbed/)
 - **Description**: Train an RL agent (`Bandit`) to select the best action. Demonstrate multiple action selection strategies. Maximize the expected reward by selecting the best actions based on learned estimates.
 - **Main File**: [ten-armed-testbed.ipynb](ten-armed-testbed/notebooks/ten_armed_testbed.ipynb)
+
+### [Project 3: Grid-World](gridworld-mdp/)
+- **Description**: Train an RL agent which will explore the environment and update state values to solve a 5x5 Gridworld using the Bellman optimality equation. Visualize the learned state-value function and optimal policy.
+- **Main File**: [grid-world.ipynb](gridworld-mdp/notebooks/grid_world.ipynb)
 
 
 

@@ -30,7 +30,7 @@ concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and
 
 ### [Project 5: Gamblers Problem – Value Iteration](gambler-problem/)
 - **Description**: Solve the Gambler’s Problem using Value Iteration to find the optimal policy that maximizes the probability of reaching a target capital. Visualizes value function updates and the final betting strategy.
-- **Main File**: [amblers_problem.ipynb](gambler-problem/notebooks/gamblers_problem.ipynb)
+- **Main File**: [gamblers_problem.ipynb](gambler-problem/notebooks/gamblers_problem.ipynb)
 
 
 ## Installation

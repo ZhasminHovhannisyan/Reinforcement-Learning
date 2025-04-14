@@ -466,6 +466,8 @@ def monte_carlo_es(episodes):
             state_action_values[player_sum, dealer_card, usable_ace, action] += reward
             state_action_pair_count[player_sum, dealer_card, usable_ace, action] += 1
 
+    return state_action_values
+
     # endregion Body
 
 def monte_carlo_off_policy(episodes):

@@ -481,7 +481,43 @@ def monte_carlo_off_policy(episodes):
 
     # region Body
 
+    initial_state = [True, 13, 2]
 
+    importance_sampling_ratios = []
+
+    returns = []
+
+    for i in range(episodes):
+        _, reward, player_trajectory = play(behavior_off_policy_player, initial_state = initial_state)
+
+        numerator = 1.0
+        denominator = 1.0
+
+        for (usable_ace, player_sum, dealer_card), action in player_trajectory:
+            if action == target_policy_player(usable_ace, player_sum, dealer_card):
+                denominator *= 0.5
+            else:
+                numerator = 0.0
+                break
+
+        importance_sampling_ratios.append(numerator / denominator)
+        returns.append(reward)
+
+    importance_sampling_ratios = np.asarray(importance_sampling_ratios)
+    returns = np.asarray(returns)
+
+    weighted_returns = importance_sampling_ratios * returns
+
+    weighted_returns = np.add.accumulate(weighted_returns)
+
+    importance_sampling_ratios = np.add.accumulate(importance_sampling_ratios)
+
+    ordinary_estimates = weighted_returns / np.arange(1, episodes + 1)
+
+    with np.errstate(divide='ignore', invalid='ignore'):
+        weighted_estimates = np.where(importance_sampling_ratios != 0, weighted_returns / importance_sampling_ratios, 0 )
+
+    return ordinary_estimates, weighted_estimates
 
     # endregion Body
 

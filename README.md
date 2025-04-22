@@ -32,6 +32,15 @@ concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and
 - **Description**: Solve the Gambler’s Problem using Value Iteration to find the optimal policy that maximizes the probability of reaching a target capital. Visualizes value function updates and the final betting strategy.
 - **Main File**: [gamblers_problem.ipynb](gambler-problem/notebooks/gamblers_problem.ipynb)
 
+### [Project 6: Blackjack – Monte Carlo Methods](blackjack/)  
+- **Description**: Estimate state-value and state-action functions in the Blackjack environment using Monte Carlo methods. Includes On-Policy evaluation, Exploring Starts for optimal policy estimation, and Off-Policy learning with importance sampling.  
+- **Main File**: [black_jack.py](blackjack/src/black_jack.py)
+
+### [Project 7: Infinite Variance – Importance Sampling](infinite-variance/)  
+- **Description**: Illustrate the instability of ordinary importance sampling in off-policy evaluation through a simple stochastic environment. Visualizes high-variance estimates as a result of diverging behavior and target policies.  
+- **Main File**: [infinite_variance.py](infinite-variance/src/infinite_variance.py)
+
+
 
 ## Installation
 

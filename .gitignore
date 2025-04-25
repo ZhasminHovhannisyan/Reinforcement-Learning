@@ -1,0 +1,34 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# virtual environments
+venv/
+.env/
+*.venv/
+*.env/
+
+# IDE-specific files
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# logs and environment files
+*.log
+*.env
+.envrc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# system-specific files
+.DS_Store
+Thumbs.db

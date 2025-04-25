@@ -101,7 +101,7 @@ class Judge:
             # Calculate the hash value for the next state
             next_state_hash = current_state.get_next_state(i, j, symbol).calculate_hash_value()
 
-            # Get the current state
+            # Get the current state and whether the game ended
             current_state, is_game_ended = all_states[next_state_hash]
 
             # Set the current state for both players
@@ -112,12 +112,20 @@ class Judge:
             if print_state:
                 current_state.print_state()
 
-            # Return winner when game ends
+            # Game ends (win or tie)
             if is_game_ended:
                 if not print_state:
                     current_state.print_state()
                 return current_state.winner
 
-        # endregion Body
+            # Early tie detection
+            if current_state.is_inevitable_tie():
+                current_state.winner = 0
+                current_state.game_ended = True
+                if print_state:
+                    current_state.print_state()
+                return 0  # Tie
+
+            # endregion Body
 
     # endregion Functions

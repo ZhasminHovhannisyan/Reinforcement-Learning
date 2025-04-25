@@ -164,6 +164,29 @@ class State:
             print(out)
         print('-------------')
 
+    def is_inevitable_tie(self):
+        """
+        Check if it is impossible for either player to win from this point.
+        This happens when no row, column, or diagonal can sum to 3 or -3 due to mixed symbols.
+        """
+        lines = []
+        # Rows and columns
+        for i in range(self.board_rows):
+            lines.append(self.data[i, :])  # row
+            lines.append(self.data[:, i])  # column
+        # Diagonals
+        main_diag = np.array([self.data[i, i] for i in range(self.board_rows)])
+        sec_diag = np.array([self.data[i, self.board_columns - 1 - i] for i in range(self.board_rows)])
+        lines.append(main_diag)
+        lines.append(sec_diag)
+        for line in lines:
+            # A player can only win on a line with only 0s and either 1s or -1s (not both)
+            has_pos = 1 in line
+            has_neg = -1 in line
+            if not (has_pos and has_neg):
+                return False  # This line is still winnable by someone
+        return True  # All lines are blocked
+
         # endregion Body
 
     # endregion Functions

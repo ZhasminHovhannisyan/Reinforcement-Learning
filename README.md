@@ -2,13 +2,13 @@
 
 ## Overview
 
-This repository contains a collection of projects and implementations developed as part of Reinforcement Learning (RL) course at NPUA.
+This repository contains a collection of projects and implementations developed as part of the Reinforcement Learning (RL) course 
+at National Polytechnic University of Armenia (NPUA) during the Spring semester of the 2024/2025 academic year.
 The projects focus on applying RL algorithms to solve classic problems, such as training agents to play games or optimizing decision-making in simulated environments.
 
 ## Repository Structure
-The repository is organized into subdirectories, 
-each containing a distinct RL project inspired by 
-concepts from *Reinforcement Learning: An Introduction* by Richard S. Sutton and Andrew G. Barto.
+The repository is organized into subdirectories, each containing a distinct RL project inspired by 
+concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2020.pdf) by Richard S. Sutton and Andrew G. Barto.
 
 ## Projects 
 

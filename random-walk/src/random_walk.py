@@ -158,7 +158,7 @@ def batch_updating(method, episodes, step_size=0.001, threshold=1e-3):
     runs = 100
 
     # Create an array of total errors filled with 0s
-    total_errors = np.zeros(runs)
+    total_errors = np.zeros(episodes)
 
     # For every run
     for _ in tqdm(range(runs)):
@@ -185,6 +185,7 @@ def batch_updating(method, episodes, step_size=0.001, threshold=1e-3):
 
             else:
                 trajectory, reward = monte_carlo(current_values, batch=True)
+
             # append the trajectory to the list of trajectories of states
             states_trajectory.append(trajectory)
 
@@ -193,6 +194,7 @@ def batch_updating(method, episodes, step_size=0.001, threshold=1e-3):
 
             # keep feeding our algorithm with trajectories seen so far until state-value function converges
             while True:
+
                 # create an empty array for updates filled with 0s
                 updates = np.zeros(7)
 
@@ -221,11 +223,12 @@ def batch_updating(method, episodes, step_size=0.001, threshold=1e-3):
 
             # calculate RMSE between the true state-values and current state-values, averaged over the 5 states
             rmse = np.sqrt(np.sum(np.power(current_values - true_values, 2)) / 5.0)
+
             # append the RMSE to the list of RMSEs
             rms_errors.append(rmse)
 
         # add RMSEs to total errors
-        total_errors += np.asarray(rms_errors)
+        total_errors += np.array(rms_errors)
 
     # average total errors over runs
     total_errors /= runs

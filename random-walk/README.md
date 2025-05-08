@@ -38,43 +38,60 @@ differ in convergence behavior, sample efficiency, and stability.
 
 ---
 
-## Problem Description
 
-The environment consists of 7 states arranged linearly:
+## How it Works
 
+### Environment
+
+The environment is a simple linear chain of 7 states:
 Terminal-Left — A — B — C — D — E — Terminal-Right
 
-
-The agent always starts in the middle state `C` and takes random steps (left or right) until it reaches a terminal state. The goal is to estimate the **value of each non-terminal state** using:
+The agent always starts in the middle state `C` and takes random steps (left or right) until it reaches a 
+terminal state. The episode ends when the agent reaches either terminal state. 
+The reward is **+1** for reaching the right terminal state, and **0** otherwise.
+The goal is to estimate the **value of each non-terminal state** using:
 
 - **TD(0) Learning**
 - **Monte Carlo Learning**
-- **Batch Updating for both methods**
 
-The true state values under this setup are known and used for evaluation.
+
+The true value of each non-terminal state is its probability of reaching the right terminal.
+
+
+#### Batch Updating
+- Stores all episodes so far and repeatedly updates the value function until convergence.
+- Implemented for both TD(0) and Monte Carlo.
 
 ---
 
-## Implemented Methods
+### Parameters
+
+You can configure hyperparameters in the [notebook](notebooks/random_walk.ipynb):
+
+- step_size = 0.1         ``# Learning rate α`` 
+- episodes = 100          ``# Number of episodes``
+- runs = 100              ``# Independent runs for averaging``
+
+
+---
+
+### Learning Methods
 
 ### Temporal Difference (TD(0))
 
-- Online, bootstrapping method
-- Updates values after each step using:
+Updates value estimates after each step using bootstrapping:
 
 V(s) ← V(s) + α [R + γ V(s') − V(s)]
 
-
 ### Monte Carlo (MC)
 
-- Updates occur after each **episode**
-- Uses the full return from an episode:
+#### Monte Carlo
+Value estimates are updated at the end of each episode based on total return:
 
 V(s) ← V(s) + α [G − V(s)]
 
-
-
 Batch updating is implemented for both TD(0) and MC, which updates values repeatedly over a batch of episodes until convergence.
+
 
 ---
 
@@ -89,7 +106,6 @@ Plots the estimates after 0, 1, 10, and 100 episodes compared to true values.
 - Includes multiple learning rates (α) for each method.
 
 ### 3. **Batch Updating Comparison**
-
-- Shows how RMS error evolves for both methods during batch learning.
+Shows how RMS error evolves for both methods during batch learning.
 
 ---

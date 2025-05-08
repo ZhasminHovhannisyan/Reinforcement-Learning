@@ -6,9 +6,13 @@ This repository contains a collection of projects and implementations developed 
 at National Polytechnic University of Armenia (NPUA) during the Spring semester of the 2024/2025 academic year.
 The projects focus on applying RL algorithms to solve classic problems, such as training agents to play games or optimizing decision-making in simulated environments.
 
+---
+
 ## Repository Structure
 The repository is organized into subdirectories, each containing a distinct RL project inspired by 
 concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/RLbook2020.pdf) by Richard S. Sutton and Andrew G. Barto.
+
+---
 
 ## Projects 
 
@@ -40,7 +44,15 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Illustrate the instability of ordinary importance sampling in off-policy evaluation through a simple stochastic environment. Visualizes high-variance estimates as a result of diverging behavior and target policies.  
 - **Main File**: [infinite_variance.py](infinite-variance/src/infinite_variance.py)
 
+### [Project 8: Random Walk environment – MC vs TD](random-walk/)
+- **Description**: Evaluate state-value functions in a linear random walk environment using both Temporal Difference and Monte Carlo methods. Includes online learning and batch updates, with RMSE-based comparisons against true values.  
+- **Main File**: [random_walk.py](random-walk/src/random_walk.py)
 
+### [Project 9: Windy Grid World – SARSA](windy-gridworld/)
+- **Description**:  Solve the Windy Grid World using the SARSA algorithm with ε-greedy action selection. The agent learns to navigate a stochastic, wind-affected grid through online TD updates.
+- **Main File**: [windy_grid_world.py](windy-gridworld/src/windy_grid_world.py)
+
+---
 
 ## Installation
 

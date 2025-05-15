@@ -52,6 +52,10 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**:  Solve the Windy Grid World using the SARSA algorithm with ε-greedy action selection. The agent learns to navigate a stochastic, wind-affected grid through online TD updates.
 - **Main File**: [windy_grid_world.py](windy-gridworld/src/windy_grid_world.py)
 
+### [Project 10: Cliff Walking – SARSA, Expected SARSA, Q-Learning](cliff-walking/)
+- **Description**: Solve the Cliff Walking environment using SARSA, Expected SARSA, and Q-learning. Compares safe vs optimal policies, reward trends, and sensitivity to step-size using multiple learning algorithms.  
+- **Main File**: [cliff_walking.py](cliff-walking/src/cliff_walking.py)
+
 ---
 
 ## Installation

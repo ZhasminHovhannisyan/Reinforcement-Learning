@@ -41,9 +41,9 @@ leading to **infinite variance** in expected return estimates.
 The **target policy** always selects `"left"`, while the **behavior policy** chooses randomly between `"left"` and `"right"`.
 
 The importance sampling ratio is calculated as:
-$$
-\rho = \left(\frac{\pi(a \mid s)}{b(a \mid s)}\right)^n = \left(\frac{1}{0.5}\right)^n = 2^n
-$$
+
+ρ = (π(a│s) / b(a│s))ⁿ = (1 / 0.5)ⁿ = 2ⁿ
+
 Where \( n \) is the number of consecutive `"left"` actions before termination.
 
 This exponential growth causes very **high variance** in the estimate of expected return.

@@ -40,10 +40,12 @@ It balances exploration and exploitation via ε-greedy action selection.
 ### Parameters
 You can configure the following parameters in [windy_grid_world.py](src/windy_grid_world.py):
 
+```
 exploration_probability = 0.1   # ε
 step_size = 0.5                 # α
 discount = 1                    # γ
 reward = -1.0                   # constant reward per step
+```
 
 ## Results & Visualization
 

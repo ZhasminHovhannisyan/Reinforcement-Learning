@@ -1,0 +1,5 @@
+numpy~=2.2.5
+tqdm~=4.67.1
+matplotlib~=3.10.1
+seaborn~=0.13.2
+ipython~=9.2.0

@@ -1,22 +1,35 @@
-# Maximization Bias – Q-Learning vs Double Q-Learning
+# Maximization Bias – Q-Learning vs Double Q-Learning, Expected SARSA vs Double Expected SARSA
+
 
 ## Project Overview
 
 This project implements a simple two-state “biased” environment 
-to illustrate **maximization bias** in standard Q-learning and 
-how **Double Q-learning** can mitigate that bias. The environment consists of:
+to illustrate **maximization bias** and compare four 
+reinforcement learning algorithms:
+
+1. **Q-Learning** (off‐policy TD)
+2. **Double Q-Learning** (bias‐reduced TD)
+3. **Expected SARSA** (on‐policy TD using expected value)
+4. **Double Expected SARSA** (bias‐reduced version of Expected SARSA)
+
+
+The environment consists of:
 
 - **State A**: Two possible actions (`left` or `right`).  
-  - `left` transitions immediately to the terminal state (no noise).  
-  - `right` transitions to **State B** (no reward at this transition).
+  - `right` transitions immediately to the terminal state (no noise).  
+  - `left` transitions to **State B** (no reward at this transition).
 - **State B**: Ten possible actions (indexed 0–9), each
 transitioning directly to the terminal state with a stochastic 
 reward drawn from N(−0.1,1).
 
-The goal is to show that standard Q-learning tends to overestimate action values
-in **State B** (due to noisy samples), causing it to choose “right” too often 
-in **State A**. In contrast, Double Q-learning splits the updates across two value
-functions, reducing overestimation and yielding a more balanced action choice in **State A**.
+![Figure_6_5_mdp.PNG](book_images/Figure_6_5_mdp.PNG)
+
+
+Because the rewards in State B are noisy, 
+standard Q-Learning tends to overestimate their values (maximization bias) 
+and thus chooses “left” in State A too often. 
+Each of the four algorithms is evaluated on how frequently it chooses
+the safer “left” action in State A over many episodes.
 
 ---
 
@@ -30,10 +43,15 @@ functions, reducing overestimation and yielding a more balanced action choice in
       - If only `first_action_value_estimates` is provided, runs a single episode of **standard Q-learning**, updating Q1(s,a).  
       - If both `first_...` and `second_...` are provided, runs a single episode of **Double Q-learning**, randomly choosing which value function to update at each step and using the other to compute the target.  
       - Returns `left_count`: the number of times “left” was chosen in State A during that episode.
-
+    - `expected_sarsa(first_action_value_estimates, second_action_value_estimates=None)`:
+      - If only `first_action_value_estimates` is provided, runs a single episode of **Expected SARSA**, updating Q1(s,a).  
+      - If both `first_...` and `second_...` are provided, runs a single episode of **Double Expected SARSA**,
+      - Returns `left_count`: the number of times “left” was chosen in State A during that episode.
+      - Returns `left_count`: number of times “left” (action 1) is chosen in State A during that episode.
+      - Computes the expected next‐state value under ε‐greedy each step.
 - **[maximization_bias.ipynb](notebooks/maximization_bias.ipynb)**: Jupyter notebook for running experiments and plotting results.  
-  - Contains code to run many independent episodes (1000 runs for 300 episodes) and track how often “left” is chosen in **State A** under each algorithm.  
-  - Generates plots of the **frequency of choosing “left”** (i.e., avoiding State B) versus the number of episodes or runs, comparing standard Q-learning to Double Q-learning.
+  - Contains code to run many independent episodes (1000 runs for 300 episodes for Q-learnings and 1000 runs for 1000 episodes for Expected SARSAs) and track how often “left” is chosen in **State A** under each algorithm.  
+  - Generates plots of the **frequency of choosing “left”** versus the number of episodes or runs, comparing standard Q-learning to Double Q-learning and Expected Sarsa to Double Expected SARSA.
 
 - **[requirements.txt](requirements.txt)**: Dependencies for the project
 
@@ -45,14 +63,14 @@ functions, reducing overestimation and yielding a more balanced action choice in
 
 ### Environment Dynamics
 
-- **State A** (ID 0): Two actions  
-  1. `right (0)` → transitions to **State B** (ID 1), with **no immediate reward**.  
-  2. `left (1)` → transitions to **terminal** (ID 2), with **reward 0**.  
-- **State B** (ID 1): Ten actions (0–9)  
-  - Any action in State B transitions to **terminal** (ID 2), and returns a reward drawn from a normal distribution N(−0.1,1).
+- **State A**: Two actions  
+  1. `right (0)` → transitions to **terminal**, with **reward 0**.  
+  2. `left (1)` →  transitions to **State B**, with **no immediate reward**.
+- **State B**: Ten actions (0–9)  
+  - Any action in State B transitions to **terminal**, and returns a reward drawn from distribution N(−0.1,1).
 
 
-Because each sample in State B is noisy (Gaussian noise), the standard Q-learning update  
+Because each sample in State B is noisy (Gaussian noise), the standard **Q-learning** update  
 $$
 Q(s,a) \;\leftarrow\; Q(s,a) \;+\; \alpha\,\Bigl[r + \gamma\,\max_{a'} Q(s',a') \;-\; Q(s,a)\Bigr]
 $$
@@ -60,7 +78,7 @@ $$
 tends to **overestimate** the true value of actions in State B. 
 This is known as **maximization bias**.
 
-Double Q-learning splits the action-value function into two independent estimates 
+**Double Q-learning** splits the action-value function into two independent estimates 
 \(Q_1\) and \(Q_2\). At each step, it randomly picks one of the two to update, 
 using the other to form the target:  
 
@@ -79,6 +97,51 @@ $$
 This reduces overestimation, so the agent chooses “left” more often in State A 
 (avoiding noise in State B).
 
+In case of **expected SARSA**
+on‐policy TD updates use the **expected value** under an ε‐greedy policy in the next state:
+1. Compute the expected next‐state action‐value:
+   $$
+   \text{exp\_Q} \;=\; \sum_{a'} \pi(a' \mid s')\,Q(s',a')
+   $$
+   where
+   - For each **non‐greedy** action $a'$, $\pi(a' \mid s') = \frac{\varepsilon}{|A(s')|}$.
+   - For each **greedy** action $a'$, $\pi(a' \mid s') = 1 - \varepsilon + \frac{\varepsilon}{|A(s')|}$.
+
+2. Update $Q(s,a)$ using:
+   $$
+   Q(s,a) \;\leftarrow\; Q(s,a) \;+\; \alpha \Bigl[r \;+\; \gamma\,\text{exp\_Q} \;-\; Q(s,a)\Bigr]
+   $$
+
+**Double Expected SARSA** maintains two action‐value tables, Q_1 and Q_2. At each time step:
+
+1. **Combine** values to form an ε‐greedy policy based on
+   $$
+   \overline{Q}(s) \;=\; Q_{1}(s) \;+\; Q_{2}(s).
+   $$
+
+2. **Flip a fair coin** (with probability 0.5) to decide which \(Q\) table to update:
+   - If heads: update Q1 using Q2 to compute the expected next‐state value.
+   - If tails: update Q2 using Q1 to compute the expected next‐state value.
+
+3. Suppose we are updating Q2. Then:
+   1. From state \(s\), select action \(a\) by ε‐greedy on Q(s).
+   2. Observe reward \(r\) and next state \(s'\).
+   3. Compute the expected next‐state action‐value using the other 
+   4. table Q_1 under ε‐greedy on  Q‾(s′):
+      $$
+      \text{exp\_Q\_next} \;=\; \sum_{a'} \pi(a' \mid s')\,Q_{1}(s', a'),
+      $$
+      where pi is ε‐greedy derived from Q(s').
+
+   4. Perform the update:
+      $$
+      Q_{2}(s,a) \;\leftarrow\; Q_{2}(s,a) 
+      \;+\; \alpha\,\Bigl[r \;+\; \gamma\,\text{exp\_Q\_next} \;-\; Q_{2}(s,a)\Bigr].
+      $$
+
+4. If instead you were updating Q_1, swap roles of Q_1 and Q_2 in the formulas above.
+
+By alternating updates and using the “other” table to compute expected values, **Double Expected SARSA** reduces overestimation bias compared to standard Expected SARSA.
 
 ### Hyperparameters
 There is a possibility to try on your custom problem, by changing these parameters

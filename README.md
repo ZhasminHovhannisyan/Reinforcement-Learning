@@ -56,6 +56,11 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Solve the Cliff Walking environment using SARSA, Expected SARSA, and Q-learning. Compares safe vs optimal policies, reward trends, and sensitivity to step-size using multiple learning algorithms.  
 - **Main File**: [cliff_walking.py](cliff-walking/src/cliff_walking.py)
 
+### [Project 11: Maximization Bias – Q-Learning vs Double Q-Learning, Expected SARSA vs Double Expected SARSA](maximization-bias/)
+Description: Compare how standard Q-Learning suffers from maximization bias in a noisy two-state environment, and evaluate how Double Q-Learning mitigates that bias by more accurate action‐value estimation. Compare Expected SARSA and Double Expected SARSA to show that even without max() operator, still the policy can be improved using two different estimates.
+Main File: [maximization_bias.py](maximization-bias/src/maximization_bias.py)
+
+
 ---
 
 ## Installation

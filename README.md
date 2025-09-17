@@ -60,6 +60,11 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Compare how standard Q-Learning suffers from maximization bias in a noisy two-state environment, and evaluate how Double Q-Learning mitigates that bias by more accurate action‐value estimation. Compare Expected SARSA and Double Expected SARSA to show that even without max() operator, still the policy can be improved using two different estimates.
 - **Main File**: [maximization_bias.py](maximization-bias/src/maximization_bias.py)
 
+### [Project 12: Random Walk – n-step TD Learning](random-walk-ntd/)  
+- **Description**: Study the bias–variance trade-off in value estimation using n-step Temporal Difference learning in a 19-state random walk environment. Compares RMSE performance across different step sizes.  
+- **Main File**: [random_walk.py](random-walk-ntd/src/random_walk.py)
+
+
 
 ---
 

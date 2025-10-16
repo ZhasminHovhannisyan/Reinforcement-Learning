@@ -64,6 +64,28 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Study the bias–variance trade-off in value estimation using n-step Temporal Difference learning in a 19-state random walk environment. Compares RMSE performance across different step sizes.  
 - **Main File**: [random_walk.py](random-walk-ntd/src/random_walk.py)
 
+### [Project 13: Maze Navigation – Dyna-Q, Dyna-Q+, and Prioritized Sweeping](mazes/)
+- **Description**: Explore model-based reinforcement learning through maze navigation using Dyna-Q, Dyna-Q+, and Prioritized Sweeping algorithms. Demonstrates how planning, exploration bonuses, and prioritized updates improve learning speed and adaptability in dynamic environments.  
+- **Main File**: [functions.py](mazes/src/functions.py)
+
+### [Project 14: Updates Comparison – Expected vs Sample Updates](updates-comparison/)
+- **Description**: Analyze the computational trade-off between expected and sample updates in value estimation. Demonstrate how sample-based methods can achieve near-expected accuracy with far less computation, especially in large branching environments. 
+- **Main File**: [expectation_vs_sample.py](updates-comparison/src/expectation_vs_sample.py)
+
+### [Project 15: Trajectory Sampling](trajectory-sampling/)
+- **Description**: Compare uniform and on-policy expected tabular updates in randomly generated MDPs to analyze the effect of update distributions on planning efficiency. Demonstrates how on-policy sampling accelerates early learning but can slow convergence for larger environments.
+- **Main File**: [trajectory_sampling.py](trajectory-sampling/src/trajectory_sampling.py)
+
+### [Project 16: Random Walk with Function Approximation – Gradient MC and Semi-Gradient TD](random-walk-fa/)  
+- **Description**: Extends the random walk to a 1000-state environment with function approximation using state aggregation, polynomial, Fourier, and tile coding bases. Explores how Gradient MC and Semi-Gradient TD interact with representation quality and bootstrapping.  
+- **Main File**: [random_walk_fa.py](random-walk-fa/src/random_walk_fa.py)
+
+### [Project 17: Square Wave – Function Approximation](coarse-coding/)
+- **Description**: Implements feature-based value estimation to approximate a discontinuous square wave signal. Uses interval-based feature windows to represent the function and performs incremental weight updates based on sampled data.
+- **Main File**: [square_wave.py](coarse-coding/src/square_wave.py)
+
+
+### Project 
 
 
 ---

@@ -41,9 +41,13 @@ The experiments highlight the impact of **model accuracy**, **exploration**, and
   - `time_weight` (κ) for Dyna-Q+
   - `planning_steps`, `threshold` (θ), and number of `runs`
 
-- [dyna_maze.ipynb](notebooks/dyna_maze.ipynb): Run and visualize Dyna-Q vs Dyna-Q+ learning curves
-- [changing_maze.ipynb](notebooks/changing_maze.ipynb): Test agent adaptability when the maze changes  
-- [prioritized_sweeping.ipynb](notebooks/prioritized_sweeping.ipynb): Demonstrate efficient planning through prioritized updates  
+- **[dyna_maze.ipynb](notebooks/dyna_maze.ipynb)**: Run and visualize Dyna-Q vs Dyna-Q+ learning curves
+- **[changing_maze.ipynb](notebooks/changing_maze.ipynb)**: Test agent adaptability when the maze changes  
+- **[prioritized_sweeping.ipynb](notebooks/prioritized_sweeping.ipynb)**: Demonstrate efficient planning through prioritized updates  
+
+- **[requirements.txt](requirements.txt)**: Project dependencies
+
+- **[README.md](README.md)**: Project documentation
 
 ---
 

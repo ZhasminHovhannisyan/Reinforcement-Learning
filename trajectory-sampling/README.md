@@ -44,42 +44,28 @@ This illustrates the trade-off between focus and coverage in planning-based RL.
 
 Each experiment defines a randomly generated episodic MDP:
 
-∣
-𝑆
-∣ non-terminal states and 2 actions per state.
+- ∣𝑆∣ non-terminal states and 2 actions per state.
+- Each action leads to one of 𝑏 next states (branching factor).
+- Each transition has a 0.1 probability of termination.
+- Rewards are drawn from 𝑁(0,1).
 
-Each action leads to one of 
-𝑏 next states (branching factor).
-
-Each transition has a 0.1 probability of termination.
-
-Rewards are drawn from 
-𝑁
-(
-0
-,
-1
-)
-.
-
-Sampling Methods
-Uniform Sampling
-
+### Sampling Methods
+#### Uniform Sampling
 Cyclically updates every state–action pair:
 
+```
 estimates[s,a] ← (1 − p_term) · E[r + max_a' Q(s', a')]
-
+```
 
 Ensures even coverage of the environment, suitable for steady long-term convergence.
 
-On-Policy Sampling
+### On-Policy Sampling
 
 Simulates episodes under an ε-greedy policy (ε=0.1) and updates only visited pairs:
-
+```
 a ← ε-greedy(Q(s))
-
 estimates[s,a] ← (1 − p_term) · E[r + max_a' Q(s', a')]
-
+```
 
 Focuses computation on likely trajectories, accelerating early learning.
 

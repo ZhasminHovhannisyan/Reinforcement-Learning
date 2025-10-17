@@ -72,7 +72,7 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Analyze the computational trade-off between expected and sample updates in value estimation. Demonstrate how sample-based methods can achieve near-expected accuracy with far less computation, especially in large branching environments. 
 - **Main File**: [expectation_vs_sample.py](updates-comparison/src/expectation_vs_sample.py)
 
-### [Project 15: Trajectory Sampling](trajectory-sampling/)
+### [Project 15: TTrajectory Sampling – Expected vs On-Policy Updates](trajectory-sampling/)
 - **Description**: Compare uniform and on-policy expected tabular updates in randomly generated MDPs to analyze the effect of update distributions on planning efficiency. Demonstrates how on-policy sampling accelerates early learning but can slow convergence for larger environments.
 - **Main File**: [trajectory_sampling.py](trajectory-sampling/src/trajectory_sampling.py)
 

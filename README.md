@@ -3,7 +3,7 @@
 ## Overview
 
 This repository contains a collection of projects and implementations developed as part of the Reinforcement Learning (RL) course 
-at National Polytechnic University of Armenia (NPUA) during the Spring semester of the 2024/2025 academic year.
+at National Polytechnic University of Armenia (NPUA) during the Spring semester of the 2024/25, as well as Autumn semester of 2025/26 academic years.
 The projects focus on applying RL algorithms to solve classic problems, such as training agents to play games or optimizing decision-making in simulated environments.
 
 ---
@@ -72,7 +72,7 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Analyze the computational trade-off between expected and sample updates in value estimation. Demonstrate how sample-based methods can achieve near-expected accuracy with far less computation, especially in large branching environments. 
 - **Main File**: [expectation_vs_sample.py](updates-comparison/src/expectation_vs_sample.py)
 
-### [Project 15: TTrajectory Sampling – Expected vs On-Policy Updates](trajectory-sampling/)
+### [Project 15: Trajectory Sampling – Expected vs On-Policy Updates](trajectory-sampling/)
 - **Description**: Compare uniform and on-policy expected tabular updates in randomly generated MDPs to analyze the effect of update distributions on planning efficiency. Demonstrates how on-policy sampling accelerates early learning but can slow convergence for larger environments.
 - **Main File**: [trajectory_sampling.py](trajectory-sampling/src/trajectory_sampling.py)
 
@@ -84,8 +84,25 @@ concepts from [Reinforcement Learning: An Introduction](http://incompleteideas.n
 - **Description**: Implements feature-based value estimation to approximate a discontinuous square wave signal. Uses interval-based feature windows to represent the function and performs incremental weight updates based on sampled data.
 - **Main File**: [square_wave.py](coarse-coding/src/square_wave.py)
 
+### [Project 18: Access Control – Differential Semi-Gradient SARSA](access-control/)
+- **Description**: Models a continuing decision-making task where a server must accept or reject incoming requests with different priorities. Implements differential semi-gradient SARSA with tile coding, learning average reward and action-values in an off-policy environment. Includes visualizations of long-term server utilization and learned acceptance strategies.
+- **Main File**: [access_control.py](access-control/src/access_control.py)
 
-### Project 
+### [Project 19: Mountain Car – Semi-Gradient n-Step SARSA](mountain-car/)
+- **Description**: Classic continuous-control environment solved using semi-gradient n-step SARSA with tile-coded state-action features. Demonstrates cost-to-go learning, momentum exploitation, and faster hill-climbing through multi-step bootstrapping.
+- **Main File**: [mountain_car.py](mountain-car/src/mountain_car.py)
+
+### [Project 20: Baird’s Counterexample – Off-Policy TD Divergence and Corrective Methods](counter-examples/)
+- **Description**: Recreates Baird’s off-policy counterexample to demonstrate divergence of semi-gradient TD. Includes implementation of TDC and Emphatic TD methods, comparing divergence vs. convergence empirically using expected and sample-based updates.
+- **Main File**: [counter_example.py](counter-examples/src/counter_example.py)
+
+### [Project 21: Random Walk – Eligibility Traces (TD(λ))](random-walk-et/)
+- **Description**: Augments the classical random walk with eligibility-trace methods (offline λ-return, TD(λ), true-online TD(λ)). Compares how λ and bootstrapping affect bias, stability, and RMSE across different return definitions.
+- **Main File**: [random_walk_et.py](random-walk-et/src/random_walk.py)
+
+### [Project 22: Mountain Car – SARSA(λ) with Eligibility Traces](mountain-car-et/)
+- **Description**: Extends Mountain Car using several eligibility-trace variants including accumulating, Dutch, clearing, and replacing traces. Explores how λ accelerates control learning in continuous states and reduces episode length compared to plain TD.
+- **Main File**: [mountain_car_et.py](mountain-car-et/src/mountain_car.py)
 
 
 ---
